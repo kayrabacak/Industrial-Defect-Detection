@@ -12,13 +12,6 @@
 
 ---
 
-## 🖼️ Dashboard Preview
-
-![Industrial AI Eye Dashboard](https://via.placeholder.com/800x400/0e1117/00ff41?text=Industrial+AI+Eye+Dashboard+Preview)
-*(Note: Run `streamlit run dashboard.py` to launch this interface)*
-
----
-
 ## 📖 Overview
 
 This project implements an **End-to-End MLOps pipeline** for industrial quality control (casting product inspection). Unlike traditional static models, this system features an **Autonomous Active Learning Loop**.
