@@ -30,29 +30,6 @@ It detects **"Drift"** (low-confidence predictions due to lighting, blur, or rot
 
 ---
 
-## 🏗️ System Architecture
-
-The system is designed to close the loop between **Inference** and **Training**.
-
-```mermaid
-graph TD
-    User[Camera / Streamlit UI] -->|Image| API(FastAPI Endpoint)
-    API -->|Predict| Decision{Confidence > 80%?}
-    
-    Decision -- Yes --> Response[Return Result: OK/DEFECT]
-    Decision -- No --> Drift[Save to Drift Folder]
-    
-    Drift --> Accumulate[Wait for Threshold N=5]
-    Accumulate --> Trigger[Trigger Auto-Retrain]
-    
-    Trigger --> Augment[Data Augmentation & Oversampling]
-    Augment --> Train[Fine-Tune Model (Incremental)]
-    
-    Train --> Save[Update production_model.pth]
-    Save --> Signal[Send Hot-Reload Signal]
-    Signal --> API
-```
-
 ## 🛠️ Installation
 
 ### Prerequisites
